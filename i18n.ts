@@ -62,6 +62,8 @@ export const content = {
       notAttendingBtn: 'ไม่สามารถเข้าร่วม',
       timeSlotLabel: 'ช่วงเวลาเข้าร่วมกิจกรรม',
       timeSlotPlaceholder: 'กรุณาเลือกโปรแกรมการเรียนเพื่อดูช่วงเวลา',
+      accompanyingGuestsLabel: 'จำนวนผู้เข้าร่วม (รวมผู้ปกครอง)',
+      accompanyingGuestsPlaceholder: 'ระบุจำนวน',
       photoUploadLabel: `แนบรูปถ่าย (สูงสุด ${MAX_FILES} รูป)`,
       uploadInstruction1: 'อัปโหลดไฟล์',
       uploadInstruction2: 'หรือลากและวาง',
@@ -82,6 +84,7 @@ export const content = {
       error: 'เกิดข้อผิดพลาดในการดึงข้อมูล โปรดลองอีกครั้ง',
       studentHeader: 'นักเรียน',
       parentHeader: 'ผู้ปกครอง',
+      accompanyingGuestsHeader: 'จำนวนผู้เข้าร่วม',
     },
     alerts: {
       fileTooMany: { title: 'อัปโหลดไฟล์เกินจำนวน', text: `คุณสามารถอัปโหลดได้สูงสุด ${MAX_FILES} รูป` },
@@ -92,6 +95,7 @@ export const content = {
       gradeUnselected: { title: 'โปรดเลือกระดับชั้น', text: 'กรุณาเลือกระดับชั้นและห้องเรียนของนักเรียน' },
       attendanceUnselected: { title: 'โปรดเลือกการเข้าร่วม', text: 'กรุณายืนยันการเข้าร่วมกิจกรรม' },
       timeSlotUnselected: { title: 'โปรดเลือกช่วงเวลา', text: 'กรุณาเลือกช่วงเวลาที่ต้องการเข้าร่วม' },
+      attendeesRequired: { title: 'ระบุจำนวนผู้เข้าร่วม', text: 'กรุณาระบุจำนวนผู้เข้าร่วมอย่างน้อย 1 คน (รวมผู้ปกครอง)' },
       configError: { title: 'ตั้งค่าระบบไม่ถูกต้อง', text: 'ยังไม่ได้กำหนดค่า URL ของ Backend Script โปรดติดต่อผู้ดูแลระบบ' },
       submitError: { title: 'เกิดข้อผิดพลาด', text: 'ไม่สามารถส่งข้อมูลได้ในขณะนี้ โปรดลองอีกครั้งในภายหลัง' },
       submitSuccess: {
@@ -176,6 +180,8 @@ export const content = {
       notAttendingBtn: 'Not Attending',
       timeSlotLabel: 'Activity Time Slot',
       timeSlotPlaceholder: 'Please select a program to view the time slot',
+      accompanyingGuestsLabel: 'Number of Attendees (incl. parent)',
+      accompanyingGuestsPlaceholder: 'Enter number',
       photoUploadLabel: `Photo Upload (Max ${MAX_FILES})`,
       uploadInstruction1: 'Upload a file',
       uploadInstruction2: 'or drag and drop',
@@ -196,6 +202,7 @@ export const content = {
       error: 'An error occurred while fetching data. Please try again.',
       studentHeader: 'Student',
       parentHeader: 'Parent',
+      accompanyingGuestsHeader: 'Attendees',
     },
     alerts: {
       fileTooMany: { title: 'Too Many Files', text: `You can upload a maximum of ${MAX_FILES} photos.` },
@@ -206,6 +213,7 @@ export const content = {
       gradeUnselected: { title: 'Please Select Grade', text: "Please select the student's grade and classroom." },
       attendanceUnselected: { title: 'Please Confirm Attendance', text: 'Please select whether you will be attending or not.' },
       timeSlotUnselected: { title: 'Please Select Time Slot', text: 'Please select a time slot to attend.' },
+      attendeesRequired: { title: 'Number of Attendees Required', text: 'Please enter at least 1 attendee (including the parent).' },
       configError: { title: 'System Configuration Error', text: 'The backend script URL is not configured. Please contact the administrator.'},
       submitError: { title: 'Submission Error', text: 'Could not submit the form at this time. Please try again later.' },
       submitSuccess: {

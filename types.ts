@@ -39,6 +39,7 @@ export interface FormData {
   phoneNumber: string;
   attendance: AttendanceStatus;
   timeSlot: TimeSlot | '';
+  accompanyingGuests: number | '';
   photos: UploadedFile[];
   folderPath?: string;
 }
@@ -48,4 +49,5 @@ export type Lang = 'th' | 'en';
 export interface AttendanceRecord {
   studentName: PersonName;
   parentName: PersonName;
+  accompanyingGuests: number;
 }
