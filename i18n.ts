@@ -144,7 +144,7 @@ export const content = {
       { id: TimeSlot.PRIMARY_TP, label: 'Primary Thai Programme', time: '13:00 – 14:30 pm' },
     ],
     programs: [
-        { id: Program.KINDERGARTEN, label: 'Kindergarten', grades: ['K.1A TP', 'K.1B TP', 'K.2A TP', 'K.2B TP', 'K.3A TP', 'K.3B TP', 'K.1A EP', 'K.1B EP', 'K.2A EP', 'K.2B EP', 'K.3A EP', 'K.3B EP'] },
+        { id: Program.KINDERGARTEN, label: 'Kindergarten', grades: ['K.1A TP', 'K.1B TP', 'K.2A TP', 'K.3A TP', 'K.3B TP', 'K.1A EP','K.2A EP','K.3A EP', 'K.3B EP'] },
         { id: Program.THAI_PROGRAMME, label: 'Thai Programme', grades: ['P.1A TP', 'P.1B TP', 'P.2A TP', 'P.2B TP', 'P.3A TP', 'P.3B TP', 'P.4A TP', 'P.4B TP', 'P.5A TP', 'P.5B TP', 'P.6A TP', 'P.6B TP'] },
         { id: Program.ENGLISH_PROGRAMME, label: 'English Programme', grades: ['P.1A EP', 'P.1B EP', 'P.2A EP', 'P.2B EP', 'P.3A EP', 'P.3B EP', 'P.4A EP', 'P.4B EP', 'P.5A EP', 'P.5B EP', 'P.6A EP', 'P.6B EP'] },
     ],
