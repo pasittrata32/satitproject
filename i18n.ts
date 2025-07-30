@@ -26,7 +26,7 @@ export const content = {
       { id: TimeSlot.PRIMARY_TP, label: 'ระดับชั้นประถมศึกษา Thai Programme', time: '13.00 – 14.30 น.' },
     ],
     programs: [
-        { id: Program.KINDERGARTEN, label: 'ระดับชั้นอนุบาล', grades: ['K.1A TP', 'K.1B TP', 'K.2A TP', 'K.2B TP', 'K.3A TP', 'K.3B TP', 'K.1A EP', 'K.1B EP', 'K.2A EP', 'K.2B EP', 'K.3A EP', 'K.3B EP'] },
+        { id: Program.KINDERGARTEN, label: 'ระดับชั้นอนุบาล', grades: ['K.1A TP', 'K.1B TP', 'K.2A TP', 'K.3A TP', 'K.3B TP', 'K.1A EP', 'K.2A EP', 'K.3A EP', 'K.3B EP'] },
         { id: Program.THAI_PROGRAMME, label: 'Thai Programme', grades: ['ป.1A TP', 'ป.1B TP', 'ป.2A TP', 'ป.2B TP', 'ป.3A TP', 'ป.3B TP', 'ป.4A TP', 'ป.4B TP', 'ป.5A TP', 'ป.5B TP', 'ป.6A TP', 'ป.6B TP'] },
         { id: Program.ENGLISH_PROGRAMME, label: 'English Programme', grades: ['ป.1A EP', 'ป.1B EP', 'ป.2A EP', 'ป.2B EP', 'ป.3A EP', 'ป.3B EP', 'ป.4A EP', 'ป.4B EP', 'ป.5A EP', 'ป.5B EP', 'ป.6A EP', 'ป.6B EP'] },
     ],
