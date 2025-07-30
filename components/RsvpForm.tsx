@@ -32,6 +32,7 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ lang }) => {
     phoneNumber: '',
     attendance: AttendanceStatus.UNSELECTED,
     timeSlot: '',
+    accompanyingGuests: '',
     photos: [],
   };
 
@@ -41,7 +42,14 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ lang }) => {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'accompanyingGuests') {
+      const numValue = parseInt(value, 10);
+      if (value === '' || (!isNaN(numValue) && numValue >= 0)) {
+        setFormData(prev => ({ ...prev, accompanyingGuests: value === '' ? '' : numValue }));
+      }
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>, personType: 'parentName' | 'studentName') => {
@@ -79,6 +87,7 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ lang }) => {
         attendance: status,
         timeSlot: status === AttendanceStatus.NOT_ATTENDING ? '' : prev.timeSlot,
         photos: status === AttendanceStatus.NOT_ATTENDING ? [] : prev.photos,
+        accompanyingGuests: status === AttendanceStatus.NOT_ATTENDING ? '' : (prev.accompanyingGuests || 1),
     }));
   };
 
@@ -164,7 +173,7 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ lang }) => {
         Swal.fire(alerts.configError.title, alerts.configError.text, 'error');
         return false;
     }
-    const { parentName, studentName, program, studentGrade, attendance, timeSlot } = formData;
+    const { parentName, studentName, program, studentGrade, attendance, timeSlot, accompanyingGuests } = formData;
     if (
         !parentName.prefix || !parentName.firstName || !parentName.lastName ||
         !studentName.prefix || !studentName.firstName || !studentName.lastName
@@ -184,9 +193,15 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ lang }) => {
         Swal.fire(alerts.attendanceUnselected.title, alerts.attendanceUnselected.text, 'warning');
         return false;
     }
-    if (attendance === AttendanceStatus.ATTENDING && !timeSlot) {
-        Swal.fire(alerts.timeSlotUnselected.title, alerts.timeSlotUnselected.text, 'warning');
-        return false;
+    if (attendance === AttendanceStatus.ATTENDING) {
+        if (!timeSlot) {
+            Swal.fire(alerts.timeSlotUnselected.title, alerts.timeSlotUnselected.text, 'warning');
+            return false;
+        }
+        if (accompanyingGuests === '' || (typeof accompanyingGuests === 'number' && accompanyingGuests < 1)) {
+            Swal.fire(alerts.attendeesRequired.title, alerts.attendeesRequired.text, 'warning');
+            return false;
+        }
     }
     return true;
   }
@@ -395,6 +410,21 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ lang }) => {
                         {t.timeSlotPlaceholder}
                     </div>
                 )}
+            </div>
+
+            <div>
+              <label htmlFor="accompanyingGuests" className={labelClass}>{t.accompanyingGuestsLabel} <span className="text-red-500">{t.required}</span></label>
+              <input 
+                type="number" 
+                name="accompanyingGuests" 
+                id="accompanyingGuests"
+                value={formData.accompanyingGuests}
+                onChange={handleInputChange}
+                min="1"
+                placeholder={t.accompanyingGuestsPlaceholder}
+                required
+                className={inputClass}
+              />
             </div>
             
              {/* Photo Upload */}

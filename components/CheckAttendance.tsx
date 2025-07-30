@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Program, AttendanceRecord } from '../types';
 import { content } from '../i18n';
@@ -142,6 +143,7 @@ const CheckAttendance: React.FC<CheckAttendanceProps> = ({ lang }) => {
                                 <tr>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t.studentHeader}</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t.parentHeader}</th>
+                                    <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">{t.accompanyingGuestsHeader}</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
@@ -152,6 +154,9 @@ const CheckAttendance: React.FC<CheckAttendanceProps> = ({ lang }) => {
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="text-sm text-gray-900">{`${record.parentName.prefix} ${record.parentName.firstName} ${record.parentName.lastName}`.trim()}</div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-center">
+                                            <div className="text-sm text-gray-900">{record.accompanyingGuests}</div>
                                         </td>
                                     </tr>
                                 ))}
@@ -166,9 +171,13 @@ const CheckAttendance: React.FC<CheckAttendanceProps> = ({ lang }) => {
                                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t.studentHeader}</p>
                                     <p className="text-sm text-gray-900 font-medium">{`${record.studentName.prefix} ${record.studentName.firstName} ${record.studentName.lastName}`.trim()}</p>
                                 </div>
-                                <div>
+                                <div className="mb-2">
                                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t.parentHeader}</p>
                                     <p className="text-sm text-gray-700">{`${record.parentName.prefix} ${record.parentName.firstName} ${record.parentName.lastName}`.trim()}</p>
+                                </div>
+                                <div>
+                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t.accompanyingGuestsHeader}</p>
+                                    <p className="text-sm text-gray-700 font-medium">{record.accompanyingGuests}</p>
                                 </div>
                             </div>
                         ))}
